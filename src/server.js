@@ -1,7 +1,7 @@
 import server from './app';
-
-const port = process.env.PORT || 3333;
+import { port, dbUserName } from './config'
 
 server.listen(port);
+server.get('/', (req, res) => res.json({ username: dbUserName }))
 // eslint-disable-next-line no-console
-console.log('Server started in http://localhost:3333/');
+console.log(`Server started in http://localhost:${port}/`);
