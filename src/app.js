@@ -21,10 +21,15 @@ class App {
     }
 
     async connectDB() {
-        const uri = `mongodb+srv://${dbUserName}:${dbPassword}@thewitcherbestiario.1087j.mongodb.net/${dbCollection}?retryWrites=true&w=majority`;
-        const connected = await mongoose.connect(uri,
-            { useNewUrlParser: true, useUnifiedTopology: true });
-        connected ? console.log('Conectado com o banco ') : console.log('Erro ao conectar ');
+        try {
+            const uri = `mongodb+srv://${dbUserName}:${dbPassword}@thewitcherbestiario.1087j.mongodb.net/${dbCollection}?retryWrites=true&w=majority`;
+            const connected = await mongoose.connect(uri,
+                { useNewUrlParser: true, useUnifiedTopology: true });
+            connected ? console.log('Conectado com o banco ') : console.log('Erro ao conectar ');
+        }
+        catch (err) {
+            console.log(err)
+        }
     };
 
 }
