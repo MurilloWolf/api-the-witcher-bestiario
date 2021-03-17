@@ -22,7 +22,7 @@ class App {
 
     async connectDB() {
         try {
-            const uri = `mongodb+srv://${dbUserName}:${dbPassword}@thewitcherbestiario.1087j.mongodb.net/${dbCollection}?retryWrites=true&w=majority`;
+            const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@thewitcherbestiario.1087j.mongodb.net/${process.env.DB_COLLECTION}?retryWrites=true&w=majority`;
             console.log('URI')
             console.log(uri)
             const connected = await mongoose.connect(uri,
