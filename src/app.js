@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
+import routes from './routes'
 import { dbPassword, dbUserName, dbCollection } from './config'
 class App {
     constructor() {
@@ -12,7 +13,11 @@ class App {
     applyMidleware() {
         this.server.use(cors());
         this.server.use(express.json());
+        this.useRoutes()
+    }
 
+    useRoutes() {
+        this.server.use(routes)
     }
 
     async connectDB() {
