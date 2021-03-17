@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import Monster from '../models/Monster'
 class MonsterController {
     async store(request, response) {
