@@ -57,23 +57,31 @@ var App = /*#__PURE__*/function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _context.prev = 0;
                 uri = "mongodb+srv://".concat(_config.dbUserName, ":").concat(_config.dbPassword, "@thewitcherbestiario.1087j.mongodb.net/").concat(_config.dbCollection, "?retryWrites=true&w=majority");
-                _context.next = 3;
+                _context.next = 4;
                 return _mongoose["default"].connect(uri, {
                   useNewUrlParser: true,
                   useUnifiedTopology: true
                 });
 
-              case 3:
+              case 4:
                 connected = _context.sent;
                 connected ? console.log('Conectado com o banco ') : console.log('Erro ao conectar ');
+                _context.next = 11;
+                break;
 
-              case 5:
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[0, 8]]);
       }));
 
       function connectDB() {
