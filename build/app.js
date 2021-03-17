@@ -13,7 +13,7 @@ var _cors = _interopRequireDefault(require("cors"));
 
 var _routes = _interopRequireDefault(require("./routes"));
 
-var _config = require("./config");
+var _dotenv = _interopRequireDefault(require("dotenv"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -58,30 +58,35 @@ var App = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
-                uri = "mongodb+srv://".concat(_config.dbUserName, ":").concat(_config.dbPassword, "@thewitcherbestiario.1087j.mongodb.net/").concat(_config.dbCollection, "?retryWrites=true&w=majority");
-                _context.next = 4;
+
+                _dotenv["default"].config();
+
+                uri = "mongodb+srv://".concat(process.env.DB_USERNAME, ":").concat(process.env.DB_PASSWORD, "@thewitcherbestiario.1087j.mongodb.net/").concat(process.env.DB_COLLECTION, "?retryWrites=true&w=majority");
+                console.log('URI');
+                console.log(uri);
+                _context.next = 7;
                 return _mongoose["default"].connect(uri, {
                   useNewUrlParser: true,
                   useUnifiedTopology: true
                 });
 
-              case 4:
+              case 7:
                 connected = _context.sent;
                 connected ? console.log('Conectado com o banco ') : console.log('Erro ao conectar ');
-                _context.next = 11;
+                _context.next = 14;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
 
-              case 11:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[0, 11]]);
       }));
 
       function connectDB() {

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
 import routes from './routes'
-import { dbPassword, dbUserName, dbCollection } from './config'
+import dotenv from 'dotenv'
 class App {
     constructor() {
         this.server = express();
@@ -22,6 +22,7 @@ class App {
 
     async connectDB() {
         try {
+            dotenv.config()
             const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@thewitcherbestiario.1087j.mongodb.net/${process.env.DB_COLLECTION}?retryWrites=true&w=majority`;
             console.log('URI')
             console.log(uri)
