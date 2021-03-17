@@ -61,7 +61,7 @@ var App = /*#__PURE__*/function () {
 
                 _dotenv["default"].config();
 
-                uri = "mongodb+srv://".concat(process.env.DB_USERNAME, ":").concat(process.env.DB_PASSWORD, "@thewitcherbestiario.1087j.mongodb.net/").concat(process.env.DB_COLLECTION, "?retryWrites=true&w=majority");
+                uri = process.env.MONGO_URL;
                 console.log('URI');
                 console.log(uri);
                 _context.next = 7;
