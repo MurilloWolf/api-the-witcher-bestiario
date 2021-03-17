@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "dev": "babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "dependencies": {
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",

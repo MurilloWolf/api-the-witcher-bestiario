@@ -1,5 +1,4 @@
 import server from './app';
-import { port, dbUserName } from './config'
 
-server.listen(port);
-console.log(`Server started in http://localhost:${port}/`);
+server.listen(process.env.PORT);
+console.log(`Server started in http://localhost:${process.env.PORT}/`);
