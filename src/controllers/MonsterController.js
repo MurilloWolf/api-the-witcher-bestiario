@@ -4,8 +4,22 @@ class MonsterController {
     async store(request, response) {
         try {
 
-            const { name } = request.body;
-            const newMonster = { id: Math.random().toString(), name }
+            const { name, otherNames, description, image, ocurrences,
+                weakness, drops, missions, type } = request.body;
+
+            const relatedMissions = missions.length > 0 ? missions : 'Desconhecido'
+
+            const newMonster = {
+                name,
+                type,
+                otherNames,
+                description,
+                image,
+                ocurrences,
+                weakness,
+                missions: relatedMissions,
+                drops
+            }
             const result = await Monster.create(newMonster)
             return response.status(201).json(result)
         }
